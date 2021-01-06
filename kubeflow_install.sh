@@ -23,4 +23,5 @@ kubectl create configmap dex --from-file=config.yaml=dex-config.yaml -n auth --d
 # Restart Dex to pick up the changes in the ConfigMap
 kubectl rollout restart deployment dex -n auth
 
-# connect exist container registry
+# connect exist container registry(in case of AKS & ACR)
+az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-name>
